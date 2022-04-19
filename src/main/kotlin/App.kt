@@ -1,5 +1,10 @@
 import components.Footer
 import components.Navigation
+import csstype.Flex
+import csstype.FlexBasis
+import csstype.FlexGrow
+import csstype.FlexShrink
+import emotion.react.css
 import pages.About
 import pages.Home
 import react.FC
@@ -12,28 +17,33 @@ import react.router.dom.BrowserRouter
 
 val App = FC<Props> {
     BrowserRouter {
-        Navigation {
-            links = mapOf(
-                "Home" to "/",
-                "About" to "/about",
-                "Contact" to "/contact",
-            )
-            current = null
-        }
         div {
-            setClassName("container")
-            Routes {
-                Route {
-                    path = "/"
-                    element = Home.create()
+            css {
+                flex = Flex("1".unsafeCast<FlexGrow>(), "0".unsafeCast<FlexShrink>(), "auto".unsafeCast<FlexBasis>())
+            }
+            div {
+                setClassName("container")
+                Navigation {
+                    links = mapOf(
+                        "Home" to "/",
+                        "About" to "/about",
+                        "Contact" to "/contact",
+                    )
+                    current = null
                 }
-                Route {
-                    path = "about"
-                    element = About.create()
-                }
-                Route {
-                    path = "*"
-                    element = FourZeroFour.create()
+                Routes {
+                    Route {
+                        path = "/"
+                        element = Home.create()
+                    }
+                    Route {
+                        path = "about"
+                        element = About.create()
+                    }
+                    Route {
+                        path = "*"
+                        element = FourZeroFour.create()
+                    }
                 }
             }
         }

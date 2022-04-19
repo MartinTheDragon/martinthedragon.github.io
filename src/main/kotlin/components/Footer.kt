@@ -11,7 +11,7 @@ import setClassName
 val Footer = FC<Props> {
     footer {
         id = "footer"
-        setClassName("position-absolute bottom-0 w-100 py-2 border-top border-light border-1")
+        setClassName("flex-shrink-0 py-2 border-top border-light border-1")
         div {
             setClassName("container")
             div {
