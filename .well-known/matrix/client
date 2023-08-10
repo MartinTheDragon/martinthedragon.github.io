@@ -1,5 +1,5 @@
 {
   "m.homeserver": {
-    "base_url": "https://chat.martinthedragon.at"
+    "base_url": "http://192.0.2.0"
   }
 }
